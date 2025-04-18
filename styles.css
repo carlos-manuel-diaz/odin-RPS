@@ -1,0 +1,37 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#play-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+#play-buttons {
+    padding-top: 50px;
+    width:400px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+button {
+    background-color: red;
+    width: 60px;
+    height: 50px;
+}

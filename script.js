@@ -10,8 +10,21 @@ let computerChoice = () => {
     }
 }
 
-let humanChoice = () => {
-    let choice = prompt("Play a move");
+let humanChoice = async() => { 
+    let choice = ""
+    const rock = document.getElementById("rock-button")
+    const paper = document.getElementById("paper-button")
+    const scissors = document.getElementById("scissors-button")
+    rock.addEventListener("click", ()=> {
+        choice = "Rock"
+    })
+    paper.addEventListener("click", ()=> {
+        choice = "Paper"
+    })
+    scissors.addEventListener("click", ()=> {
+        choice = "Scissors"
+    })
+    while(choice != "") 
     return choice
 }
 
@@ -21,6 +34,14 @@ let playGame=()=> {
     let score = ""
     let comp_score = 0;
     let human_score = 0;
+
+    let score_text = document.getElementById("score-text")
+    for(i = 0; i < 5; i++) {
+        let human_selection = humanChoice();
+        let comp_selection = computerChoice();
+        score_text.innerText = playRound(human_selection,comp_selection);
+        
+    }
 
     let playRound = (human_selection, comp_selection) => {
         if (human_selection == comp_selection) {
@@ -48,15 +69,6 @@ let playGame=()=> {
             }
         }
     
-    }
-
-    
-
-    for(i = 0; i < 5; i++) {
-        let human_selection = humanChoice();
-        let comp_selection = computerChoice();
-        score = playRound(human_selection,comp_selection);
-        console.log(score);
     }
 
     if (human_score > comp_score) {
